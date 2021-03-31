@@ -183,6 +183,8 @@ class DQN(OffPolicyAlgorithm):
 
         logger.record("train/n_updates", self._n_updates, exclude="tensorboard")
         logger.record("train/loss", np.mean(losses))
+        logger.record("train/pred", current_q_values)
+        logger.record("train/target",  target_q_values)
 
     def predict(
         self,
